@@ -7,3 +7,6 @@
   -fx-alignment: center-left; 
   -fx-min-width: 500px; 
 }
+.text-area .content {
+ -fx-background-color: #c1c1f0 ;
+}

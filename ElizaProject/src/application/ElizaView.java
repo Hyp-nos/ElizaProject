@@ -17,6 +17,22 @@ public class ElizaView {
 	TextField txtInput = new TextField();
 	
 	
+	public TextArea getTxtArea() {
+		return txtArea;
+	}
+
+	public void setTxtArea(TextArea txtArea) {
+		this.txtArea = txtArea;
+	}
+
+	public TextField getTxtInput() {
+		return txtInput;
+	}
+
+	public void setTxtInput(TextField txtInput) {
+		this.txtInput = txtInput;
+	}
+
 	protected ElizaView (Stage stage, ElizaModel model){
 		this.stage=stage;
 		this.model=model;
@@ -34,6 +50,7 @@ public class ElizaView {
 		hbInput.getChildren().addAll(txtInput,btnSend);
 		
 		root.setCenter(txtArea);
+		txtArea.setEditable(false);
 		root.setBottom(hbInput);
 		
 		Scene scene = new Scene(root);
