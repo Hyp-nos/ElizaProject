@@ -20,6 +20,7 @@ public class ElizaServer {
 		Thread thread = new Thread(user);
 		thread.start();
 	}
+	
 
 }
 }

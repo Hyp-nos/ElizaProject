@@ -29,6 +29,9 @@ public class ElizaModel {
 	
 	}}
 	public void sendToServer() {
+		int i=0;
+	
+		while ( i<2){
 
 		String userinputString = view.txtInput.getText();
 		
@@ -36,11 +39,15 @@ public class ElizaModel {
 		
 		try {
 			dout.writeUTF(userinputString);
+			dout.flush();
 			view.txtArea.appendText(din.readUTF());
-		} catch (IOException e) {
+			i++;
+			
+			
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-}
+}}
