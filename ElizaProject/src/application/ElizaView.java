@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ElizaView {
-	final private ElizaModel model;
+	//final private ElizaModel model;
 	final private Stage stage;
 	Button btnSend= new Button("Send");
 	TextArea txtArea= new TextArea();
@@ -33,9 +33,9 @@ public class ElizaView {
 		this.txtInput = txtInput;
 	}
 
-	protected ElizaView (Stage stage, ElizaModel model){
+	protected ElizaView (Stage stage){
 		this.stage=stage;
-		this.model=model;
+	
 		
 		stage.setTitle("Eliza the phsycic");
 		

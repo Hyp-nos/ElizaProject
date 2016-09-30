@@ -14,8 +14,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			model = new ElizaModel();
-			view = new ElizaView(primaryStage, model);
+			
+			view = new ElizaView(primaryStage);
+			model = new ElizaModel(view);
 			controller= new ElizaController(model, view);
 			view.start();
 			
