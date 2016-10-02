@@ -7,20 +7,38 @@ import java.net.Socket;
 import application.ElizaView;
 
 public class ElizaServer {
-	
+
 	ElizaView view;
+	Socket ss;
 
-	public static void main(String[] args) throws IOException {
-		ServerSocket server = new ServerSocket(1342);
-		while (true) {
+	public static void main(String[] args) throws Exception {
+		ElizaServer server = new ElizaServer();
+
+		try {
+			server.run();
+		} catch (Exception e) {
 			
-			Socket ss = server.accept();
-
-		User user = new User(ss);
-		Thread thread = new Thread(user);
-		thread.start();
+			e.printStackTrace();
+		}
 	}
-	
 
-}
+	private void run() throws Exception {
+		ServerSocket serverSocket = new ServerSocket(1342);
+		
+		System.out.println("server is connecting ....");
+		while (true) {
+
+			ss = serverSocket.accept();
+			createThread();
+		}
+		
+
+	}
+
+	private void createThread() {
+		User thread = new User(ss);
+		thread.start();
+		
+	}
+
 }
