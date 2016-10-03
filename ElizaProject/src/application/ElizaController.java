@@ -2,6 +2,7 @@ package application;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import serverClient.User;
 
 public class ElizaController {
 	final private ElizaModel model;
@@ -15,7 +16,8 @@ public class ElizaController {
 
 			@Override
 			public void handle(ActionEvent event) {
-			model.sendToServer();
+			Thread th = new Thread(model);	
+			th.start();
 			}
 		});
 
