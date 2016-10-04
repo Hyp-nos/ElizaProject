@@ -11,14 +11,16 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-
-public class User  implements Runnable {
+public class User implements Runnable {
 	Socket clientSocket;
 	String messageFromClient = new String("");
 	BufferedReader br;
 	BufferedWriter pw;
-	
+
 	public User(Socket ss) {
 		clientSocket = ss;
 
@@ -27,16 +29,13 @@ public class User  implements Runnable {
 	@Override
 	public void run() {
 		try {
-			
+
 			br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			pw = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-		
-			while 
-				((messageFromClient=br.readLine())!=null){
-				 System.out.println("we are in while loop in user");
-			System.out.println(br.readLine());
-			sendToClient();
-			
+
+			while ((messageFromClient = br.readLine()) != null) {
+				sendToClient();
+
 			}
 		} catch (Exception e) {
 
@@ -46,20 +45,32 @@ public class User  implements Runnable {
 	}
 
 	private void sendToClient() {
-		String s = "senToClient method";
-		System.out.println(s);
-		System.out.println(messageFromClient);
+
 		try {
-			if (messageFromClient.equals("hello")){
-				pw.write("hey you!");
-			}
-			else pw.write("try again");
+			dealWithMessageFromClient(messageFromClient);
+
+			//pw.write("I don't understand what you want to say\n");
 			pw.flush();
-			
+
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
 
 	}
-}
+
+	private void dealWithMessageFromClient(String message) throws IOException {
+		boolean foundResponse = false;
+
+			String[] words = message.split("[ ,\\.!?]");
+
+			for (String key : words) {
+				if (key == "you" || key == "u") {
+					pw.write("why do you keep talking about me?\n");
+					pw.flush();
+				}else pw.write("I dont understand that \n");
+			}
+
+		}
+	}
+
