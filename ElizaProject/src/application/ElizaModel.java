@@ -10,6 +10,8 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import javafx.application.Platform;
+
 public class ElizaModel implements Runnable {
 	ElizaView view;
 	Socket s;
@@ -41,7 +43,8 @@ public class ElizaModel implements Runnable {
 			pw.write(userinputString + "\n");
 			view.txtArea.appendText("> You : " + userinputString + "\n");
 			pw.flush();
-			updateTxtAread();
+			updateTxtArea();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,7 +52,7 @@ public class ElizaModel implements Runnable {
 
 	}
 
-	private void updateTxtAread() {
+	private void updateTxtArea() {
 		try {
 			while ((response = br.readLine()) != null) {
 

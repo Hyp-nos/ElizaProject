@@ -15,6 +15,7 @@ public class ElizaView {
 	Button btnSend= new Button("Send");
 	TextArea txtArea= new TextArea();
 	TextField txtInput = new TextField();
+	BorderPane root;
 	
 	
 	public TextArea getTxtArea() {
@@ -39,7 +40,7 @@ public class ElizaView {
 		
 		stage.setTitle("Eliza the phsycic");
 		
-		BorderPane root = new BorderPane();
+		root = new BorderPane();
 		
 		HBox hbMenu = new HBox();
 		HBox hbInput = new HBox();
