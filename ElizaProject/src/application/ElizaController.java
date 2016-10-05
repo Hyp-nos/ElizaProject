@@ -20,6 +20,7 @@ public class ElizaController {
 			public void handle(ActionEvent event) {
 				Thread th = new Thread(model);
 				th.start();
+				view.txtInput.clear();
 			}
 		});
 		// to make ENTER key also apply send button
