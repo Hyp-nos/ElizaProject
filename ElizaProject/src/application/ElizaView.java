@@ -1,23 +1,32 @@
 package application;
 
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ElizaView {
 	//final private ElizaModel model;
 	final private Stage stage;
-	Button btnSend= new Button("Send");
-	TextArea txtArea= new TextArea();
-	TextField txtInput = new TextField();
-	BorderPane root;
+	public Button btnSend= new Button("Send");
+	public TextArea txtArea= new TextArea();
+	public TextField txtInput = new TextField();
+	public BorderPane root;
+	 String chatterName=null;
 	
-	
+	 public  String getChatterName() {
+		
+		return chatterName;
+	}
+	 public void setChatterName(String name){
+		 this.chatterName=name;
+	 }
 	public TextArea getTxtArea() {
 		return txtArea;
 	}
@@ -60,9 +69,28 @@ public class ElizaView {
 	}
 	
 	public void start(){
-		stage.show();
+		Stage nameStage = new Stage();
+		HBox pane = new HBox();
+		TextField nameField = new TextField("Enter your Name");
+		Button submitName = new Button("Submit");
+		pane.getChildren().addAll(nameField,submitName);
+		Scene nameScene= new Scene(pane);
+		nameStage.setScene(nameScene);
+		nameStage.show();
+		submitName.setOnAction((event ->{
+			String s=nameField.getText();
+			setChatterName(s);
+			System.out.println(chatterName);
+			stage.show();
+		}
+		));
+		
 	}
+	
+
 	public void stop(){
 		stage.hide();
 	}
+
+	
 }

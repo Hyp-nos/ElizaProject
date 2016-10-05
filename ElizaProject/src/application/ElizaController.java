@@ -18,9 +18,11 @@ public class ElizaController {
 
 			@Override
 			public void handle(ActionEvent event) {
+				
 				Thread th = new Thread(model);
 				th.start();
-				view.txtInput.clear();
+				
+				
 			}
 		});
 		// to make ENTER key also apply send button
@@ -28,6 +30,7 @@ public class ElizaController {
 			if (ev.getCode() == KeyCode.ENTER) {
 				view.btnSend.fire();
 				ev.consume();
+				
 			}
 
 		}

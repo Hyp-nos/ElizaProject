@@ -8,9 +8,6 @@ import application.ElizaView;
 
 public class ElizaServer {
 
-	ElizaView view;
-	
-
 	public static void main(String[] args) throws Exception {
 
 		ServerSocket serverSocket = new ServerSocket(40009);
