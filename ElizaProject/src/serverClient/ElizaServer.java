@@ -1,15 +1,16 @@
 package serverClient;
 
-import java.io.IOException;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import application.ElizaView;
+
 
 public class ElizaServer {
 
 	public static void main(String[] args) throws Exception {
 
+		@SuppressWarnings("resource")
 		ServerSocket serverSocket = new ServerSocket(40009);
 
 		System.out.println("server is connecting ....");

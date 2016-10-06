@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	private ElizaModel model;
 	private ElizaView view;
+	@SuppressWarnings("unused")
 	private ElizaController controller;
 	
 	@Override

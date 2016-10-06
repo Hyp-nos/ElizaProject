@@ -2,22 +2,10 @@ package serverClient;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import application.ServiceLocatorEliza;
-import application.ElizaView;
-
 public class User implements Runnable {
 	Socket clientSocket;
 	String messageFromClient = new String("");
@@ -96,15 +84,7 @@ public class User implements Runnable {
 		
 		// to remove potentional white spaces in the begining or in the end
 		message = message.trim();
-	/*	while (message.charAt(message.length() - 1) == '!' || message.charAt(message.length() - 1) == '?'
-				|| message.charAt(message.length() - 1) == '.' || message.charAt(message.length()-1)==' '
-
-		) {
-
-			message = message.substring(0, message.length() - 1);}
-			// in case there is a space that got created after deleted a
-			// question mark or something
-			message = message.trim();*/
+	
 		message = message.replaceAll("[\\p{P}\\s]+$", ""); // credits to this goes to Wiktor Strivizeiw in github 
 		// http://stackoverflow.com/questions/33308203/regex-remove-all-punctuation-from-end-of-string
 
@@ -134,9 +114,7 @@ public class User implements Runnable {
 			
 		}
 		
-	
-	
-	public boolean digIn(String input, String[] target){  //search for a match
+		public boolean digIn(String input, String[] target){  //search for a match
 		
 		boolean found=false;
 		for (int i=0; i<target.length; i++){
