@@ -2,15 +2,14 @@ package application;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+
 import java.net.Socket;
 
-import javafx.application.Platform;
+
 
 public class ElizaModel implements Runnable {
 	ElizaView view;
@@ -18,7 +17,8 @@ public class ElizaModel implements Runnable {
 	BufferedWriter pw;
 	BufferedReader br;
 	String response;
-	String chatterName;
+//	String chatterName;
+	//ServiceLocatorEliza service = new ServiceLocatorEliza();
 
 	public ElizaModel(ElizaView view) {
 		this.view = view;
@@ -43,7 +43,7 @@ public class ElizaModel implements Runnable {
 			userinputString = view.txtInput.getText();
 			pw.write(userinputString + "\n");
 			
-			view.txtArea.appendText("> "+view.getChatterName()+" :" + userinputString + "\n");
+			view.txtArea.appendText("> you: "+ " :" + userinputString + "\n");
 			pw.flush();
 			updateTxtArea();
 			
@@ -71,25 +71,9 @@ public class ElizaModel implements Runnable {
 
 	@Override
 	public void run() {
-	/*	int i=0;
-		do {
-		chatterName=view.getChatterName();
-		try {
-			pw.write(chatterName+"\n");
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}}while(i==2);*/
+		
+		
 		sendToServer();
 	}
-	public void theName(){
-		
-		try {
-			pw.write(view.getChatterName()+"\n");
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 }

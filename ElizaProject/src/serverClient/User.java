@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import application.ElizaBrain;
+import application.ServiceLocatorEliza;
 import application.ElizaView;
 
 public class User implements Runnable {
@@ -58,7 +58,9 @@ public class User implements Runnable {
 			
 			br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			pw = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-		//	chatterName= br.readLine();
+
+			chatterName= br.readLine();
+		
 			while ((messageFromClient = br.readLine()) != null) {
 				sendToClient();
 
@@ -112,7 +114,7 @@ public class User implements Runnable {
 					foundResponse =2;
 					// give a random answer from the group  |||| Credits for this line goes to JRY a github user and another post by UBIK LOAD PACK another user 
 					int r= (int) Math.floor(Math.random()*brain[(group*2)+1].length);
-					pw.write(brain[(group*2)+1][r]+/*", "+chatterName+*/"\n");   // r is the index of the array that we wanna choose a response from
+					pw.write(brain[(group*2)+1][r]+", "+chatterName+"\n");   // r is the index of the array that we wanna choose a response from
 					pw.flush();
 
 				}

@@ -18,15 +18,9 @@ public class ElizaView {
 	public TextArea txtArea= new TextArea();
 	public TextField txtInput = new TextField();
 	public BorderPane root;
-	 String chatterName=null;
+	//public String chatterName=null;
 	
-	 public  String getChatterName() {
-		
-		return chatterName;
-	}
-	 public void setChatterName(String name){
-		 this.chatterName=name;
-	 }
+	
 	public TextArea getTxtArea() {
 		return txtArea;
 	}
@@ -53,10 +47,7 @@ public class ElizaView {
 		
 		HBox hbMenu = new HBox();
 		HBox hbInput = new HBox();
-		
-		
-	
-		
+
 		hbInput.getChildren().addAll(txtInput,btnSend);
 		
 		root.setCenter(txtArea);
@@ -69,7 +60,11 @@ public class ElizaView {
 	}
 	
 	public void start(){
-		Stage nameStage = new Stage();
+		txtArea.appendText("psychologists say that hearing our own name provides validation.\n \"You are an individual, "
+				+ "you matter and you have value"
+				+ "\n That is why we ask you to give us your Name"
+				+ "\nhit ENTER after that you can say hello, or what ever you feel like\n");
+	/*	Stage nameStage = new Stage();
 		HBox pane = new HBox();
 		TextField nameField = new TextField("Enter your Name");
 		Button submitName = new Button("Submit");
@@ -78,12 +73,14 @@ public class ElizaView {
 		nameStage.setScene(nameScene);
 		nameStage.show();
 		submitName.setOnAction((event ->{
-			String s=nameField.getText();
-			setChatterName(s);
-			System.out.println(chatterName);
+			;
+			ServiceLocatorEliza.setChatterName(nameField.getText());
+		
+			System.out.println(ServiceLocatorEliza.getChatterName());
 			stage.show();
 		}
-		));
+		));*/
+		stage.show();
 		
 	}
 	
