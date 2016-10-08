@@ -33,7 +33,8 @@ public class User implements Runnable {
 		{"I'm glad to hear that", "good to hear that", "are you sure ? ... just kidding"},
 		
 		// default response   
-		{ "I'm not sure if I got that right", "I did not understand that", "can you rephrase that ?", "LoL","Eliza is offline"  }};
+		{ "I'm not sure if I got that right", "I did not understand that", "can you rephrase that ?", "LoL","Eliza is offline"
+			, "Keep talking", "Do you have some daddy issues ? "}};
 
 	public User(Socket ss) {
 		clientSocket = ss;
