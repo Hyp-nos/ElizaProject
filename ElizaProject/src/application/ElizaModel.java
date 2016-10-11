@@ -9,6 +9,9 @@ import java.io.OutputStreamWriter;
 
 import java.net.Socket;
 
+import javafx.concurrent.Task;
+import javafx.scene.media.AudioClip;
+
 
 
 public class ElizaModel implements Runnable {
@@ -22,9 +25,22 @@ public class ElizaModel implements Runnable {
 
 	public ElizaModel(ElizaView view) {
 		this.view = view;
-		
+		// Background music
 		try {
+			final Task task = new Task() {
 
+		        @Override
+		        protected Object call() throws Exception {
+		          //  int s = INDEFINITE;
+		            AudioClip audio = new AudioClip(getClass().getResource("aa.mp3").toExternalForm());
+		            audio.setVolume(0.5f);
+		            audio.setCycleCount(20);
+		            audio.play();
+		            return null;
+		        }
+		    };
+		    Thread thread = new Thread(task);
+		    thread.start();
 			s = new Socket("127.0.0.1", 40009);
 			br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			pw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
