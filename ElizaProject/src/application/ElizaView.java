@@ -40,6 +40,7 @@ public class ElizaView {
 		stage.setTitle("Eliza the phsycic");
 
 		root = new BorderPane();
+		root.setId("pane");
 
 		HBox hbInput = new HBox();
 
@@ -49,7 +50,7 @@ public class ElizaView {
 		txtArea.setEditable(false);
 		root.setBottom(hbInput);
 
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root,500,500);
 		stage.setScene(scene);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 	}

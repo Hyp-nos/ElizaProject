@@ -6,7 +6,27 @@
 .text-field {
   -fx-alignment: center-left; 
   -fx-min-width: 500px; 
+  -fx-text-fill: red ;
 }
 .text-area .content {
- -fx-background-color: #c1c1f0 ;
+	 -fx-background-image: url("backgroundEliza.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+    -fx-text-fill: white;
+/*-fx-background-color: #c1c1f0 ;*/
+}
+.text-area {
+	-fx-text-fill: white;
+	-fx-font-family: "Sego UI Light";
+	-fx-font-size: 11pt;
+	-fx-font-weight: BOLD;
+}
+#pane{
+    -fx-background-image: url("backgroundEliza.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
 }
