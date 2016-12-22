@@ -20,8 +20,6 @@ public class ElizaModel implements Runnable {
 	BufferedWriter pw;
 	BufferedReader br;
 	String response;
-//	String chatterName;
-	//ServiceLocatorEliza service = new ServiceLocatorEliza();
 
 	public ElizaModel(ElizaView view) {
 		this.view = view;
@@ -31,7 +29,6 @@ public class ElizaModel implements Runnable {
 
 		        @Override
 		        protected Object call() throws Exception {
-		          //  int s = INDEFINITE;
 		            AudioClip audio = new AudioClip(getClass().getResource("aa.mp3").toExternalForm());
 		            audio.setVolume(0.5f);
 		            audio.setCycleCount(20);
@@ -62,8 +59,6 @@ public class ElizaModel implements Runnable {
 			view.txtArea.appendText("> you: "+ " :" + userinputString + "\n");
 			pw.flush();
 			updateTxtArea();
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();

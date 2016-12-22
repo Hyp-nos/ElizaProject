@@ -101,8 +101,8 @@ public class User implements Runnable {
 				}
 				group++;
 				
-				if(group*2== brain.length - 1 && foundResponse==0){ //since the responde is always an even number as i mentioned before
-					foundResponse=1; System.out.println("leve6 one reached");
+				if(group*2== brain.length - 1 && foundResponse==0){ //since the response is always an even number as i mentioned before
+					foundResponse=1; 
 					}
 				}
 			// The defaul answer
